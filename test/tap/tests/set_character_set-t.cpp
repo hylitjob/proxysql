@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 	}
 
 	if (mysql_query(mysql, "set names 'utf8'")) {
-	    fprintf(stderr, "SET CHARACTER SET 'utf8': Error: %s\n",
+	    fprintf(stderr, "SET NAMES 'utf8': Error: %s\n",
 	              mysql_error(mysql));
 		return exit_status();
 	}

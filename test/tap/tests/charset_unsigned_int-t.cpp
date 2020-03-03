@@ -30,6 +30,11 @@ int main(int argc, char** argv) {
 	if (!mysql_real_connect(mysqlAdmin, cl.host, "admin", "admin", NULL, 6032, NULL, 0)) return exit_status();
 	set_admin_global_variable(mysqlAdmin, "mysql-handle_unknown_charset", "1");
 	set_admin_global_variable(mysqlAdmin, "mysql-default_charset", "utf8mb4");
+	set_admin_global_variable(mysqlAdmin, "mysql-default_character_set_client", "utf8mb4");
+	set_admin_global_variable(mysqlAdmin, "mysql-default_character_set_results", "utf8mb4");
+	set_admin_global_variable(mysqlAdmin, "mysql-default_character_set_connection", "utf8mb4");
+	set_admin_global_variable(mysqlAdmin, "mysql-default_character_set_database", "utf8mb4");
+	set_admin_global_variable(mysqlAdmin, "mysql-default_collation_connection", "utf8mb4_general_ci");
 	if (mysql_query(mysqlAdmin, "load mysql variables to runtime")) return exit_status();
 	if (mysql_query(mysqlAdmin, "save mysql variables to disk")) return exit_status();
 
